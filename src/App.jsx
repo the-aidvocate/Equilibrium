@@ -328,7 +328,7 @@ export default function App() {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-brand-300">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <span className="font-light">Jennifer Decena<br/>Larnaca, Cyprus</span>
+                <span className="font-light">Jennifer Decena<br/>Giorki Papadopoulou 107<br/>Yiasemi Court Block C1<br/>5290 Paralimni, Cyprus</span>
               </li>
               <li className="flex items-center space-x-3 text-brand-300">
                 <Phone size={20} className="flex-shrink-0" />
