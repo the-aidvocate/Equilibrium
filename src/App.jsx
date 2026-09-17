@@ -171,7 +171,7 @@ export default function App() {
               { title: "Swedish Massage 60'", price: "60€", img: '/1.jpeg', desc: 'A classic full-body massage designed to relax the entire body, improve circulation, and relieve muscle tension.' },
               { title: "Lymphatic Drainage 60'", price: "65€", img: '/5.jpeg', imgClass: 'object-top', desc: 'A gentle massage technique to encourage the natural drainage of the lymph, reducing swelling and detoxifying.' },
               { title: "Deep Facial Cleansing 80'", price: "70€", img: '/4.jpeg', desc: 'A comprehensive facial treatment that deeply cleanses pores, exfoliates dead skin, and restores a radiant glow.' },
-              { title: "Collagen Booster 30'", price: "40€", img: '/3.jpeg', desc: 'An intensive anti-aging treatment that stimulates collagen production, leaving your skin firm, plump, and youthfully radiant.' }
+              { title: "Collagen Booster 30'", price: "40€", img: '/6.jpeg', desc: 'An intensive anti-aging treatment that stimulates collagen production, leaving your skin firm, plump, and youthfully radiant.' }
             ].map((service, index) => (
               <motion.div key={index} variants={fadeIn} className="group cursor-pointer">
                 <div className="overflow-hidden rounded-2xl mb-6 relative">
@@ -226,8 +226,8 @@ export default function App() {
                 <select name="Service" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white text-brand-900 transition-shadow">
                   <option value="">Choose a treatment...</option>
                   <option value="Swedish Massage 60' (60€)">Swedish Massage 60' - 60€</option>
-                  <option value="Lymphatic Drainage 60' (65€)">Lymphatic drainage 60' - 65€</option>
-                  <option value="Deep Facial Cleansing 80' (70€)">Deep facial cleansing 80' - 70€</option>
+                  <option value="Lymphatic Drainage 60' (65€)">Lymphatic Drainage 60' - 65€</option>
+                  <option value="Deep Facial Cleansing 80' (70€)">Deep Facial Cleansing 80' - 70€</option>
                   <option value="Collagen Booster 30' (40€)">Collagen Booster 30' - 40€</option>
                 </select>
               </div>
@@ -262,7 +262,7 @@ export default function App() {
               <h4 className="text-accent uppercase tracking-widest font-semibold text-sm mb-4">Atmosphere</h4>
               <h2 className="text-4xl font-serif text-brand-900">The Space</h2>
             </div>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hidden md:flex items-center space-x-2 text-brand-700 hover:text-accent transition-colors">
+            <a href="https://www.instagram.com/drjenni_equilibrium_beauty?stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" className="hidden md:flex items-center space-x-2 text-brand-700 hover:text-accent transition-colors">
               <Instagram size={20} />
               <span className="uppercase tracking-wider text-sm font-medium">Follow Us</span>
             </a>
@@ -286,7 +286,7 @@ export default function App() {
               A premium sanctuary for wellness, beauty, and massage therapies. Restore your natural balance today.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-brand-700 flex items-center justify-center hover:bg-brand-800 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/drjenni_equilibrium_beauty?stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-brand-700 flex items-center justify-center hover:bg-brand-800 hover:text-white transition-colors">
                 <Instagram size={18} />
               </a>
               <a href="#" className="w-10 h-10 rounded-full border border-brand-700 flex items-center justify-center hover:bg-brand-800 hover:text-white transition-colors">
