@@ -219,7 +219,7 @@ export default function App() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-brand-800 mb-2">Phone Number *</label>
-                <input type="tel" name="Phone" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white transition-shadow" placeholder="+357 99 000000" />
+                <input type="tel" name="Phone" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white transition-shadow" placeholder="+357 99232814" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-brand-800 mb-2">Select Service *</label>
@@ -232,12 +232,40 @@ export default function App() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-brand-800 mb-2">Preferred Date *</label>
-                <input type="date" name="Preferred_Date" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white text-brand-900 transition-shadow" />
+                <label className="block text-sm font-medium text-brand-800 mb-2">Preferred Date * (Mon-Fri)</label>
+                <input 
+                  type="date" 
+                  name="Preferred_Date" 
+                  required 
+                  min={new Date().toISOString().split('T')[0]}
+                  className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white text-brand-900 transition-shadow" 
+                  onChange={(e) => {
+                    const date = new Date(e.target.value);
+                    const day = date.getDay();
+                    if (day === 0 || day === 6) {
+                      alert('We are closed on weekends. Please select a Monday-Friday date.');
+                      e.target.value = '';
+                    }
+                  }}
+                />
               </div>
               <div>
-                <label className="block text-sm font-medium text-brand-800 mb-2">Preferred Time *</label>
-                <input type="time" name="Preferred_Time" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white text-brand-900 transition-shadow" />
+                <label className="block text-sm font-medium text-brand-800 mb-2">Preferred Time * (09:00 - 15:00)</label>
+                <input 
+                  type="time" 
+                  name="Preferred_Time" 
+                  required 
+                  min="09:00"
+                  max="15:00"
+                  className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white text-brand-900 transition-shadow" 
+                  onChange={(e) => {
+                    const time = e.target.value;
+                    if (time && (time < "09:00" || time > "15:00")) {
+                      alert('Our working hours are between 09:00 and 15:00. Please select a valid time.');
+                      e.target.value = '';
+                    }
+                  }}
+                />
               </div>
             </div>
             <div className="mb-8">
@@ -300,11 +328,11 @@ export default function App() {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-brand-300">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <span className="font-light">123 Wellness Avenue<br/>Larnaca, Cyprus</span>
+                <span className="font-light">Jennifer Decena<br/>Larnaca, Cyprus</span>
               </li>
               <li className="flex items-center space-x-3 text-brand-300">
                 <Phone size={20} className="flex-shrink-0" />
-                <span className="font-light">+357 99 123 456</span>
+                <span className="font-light">+357 99232814</span>
               </li>
               <li className="flex items-center space-x-3 text-brand-300">
                 <Mail size={20} className="flex-shrink-0" />
@@ -318,14 +346,10 @@ export default function App() {
             <ul className="space-y-3 font-light text-brand-300">
               <li className="flex justify-between border-b border-brand-800 pb-2">
                 <span>Monday - Friday</span>
-                <span>9:00 AM - 7:00 PM</span>
+                <span>09:00 - 15:00</span>
               </li>
               <li className="flex justify-between border-b border-brand-800 pb-2">
-                <span>Saturday</span>
-                <span>10:00 AM - 5:00 PM</span>
-              </li>
-              <li className="flex justify-between border-b border-brand-800 pb-2">
-                <span>Sunday</span>
+                <span>Saturday - Sunday</span>
                 <span>Closed</span>
               </li>
             </ul>
