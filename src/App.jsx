@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Instagram, Facebook, MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
+import { Menu, X, Instagram, Facebook, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -107,7 +107,7 @@ export default function App() {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <a href="#booking" className="inline-flex items-center space-x-2 bg-white text-brand-900 px-8 py-4 rounded-full hover:bg-brand-100 transition-colors group">
-              <span className="uppercase tracking-wider font-medium text-sm">Discover Treatments</span>
+              <span className="uppercase tracking-wider font-medium text-sm">Book Your Treatment</span>
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
@@ -168,31 +168,92 @@ export default function App() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             {[
-              { title: 'Holistic Massage', img: '/1.jpeg', desc: 'Melt away tension and restore your physical balance with our signature therapeutic touch.' },
-              { title: 'Facial Rejuvenation', img: '/3.jpeg', desc: 'Nourish your skin with premium botanical products tailored to your unique complexion.' },
-              { title: 'Body Rituals', img: '/4.jpeg', desc: 'Exfoliating scrubs and hydrating wraps designed to leave your skin glowing and renewed.' }
+              { title: "Swedish Massage 60'", price: "60€", img: '/1.jpeg', desc: 'A classic full-body massage designed to relax the entire body, improve circulation, and relieve muscle tension.' },
+              { title: "Lymphatic Drainage 60'", price: "65€", img: '/3.jpeg', desc: 'A gentle massage technique to encourage the natural drainage of the lymph, reducing swelling and detoxifying.' },
+              { title: "Deep Facial Cleansing 80'", price: "70€", img: '/4.jpeg', desc: 'A comprehensive facial treatment that deeply cleanses pores, exfoliates dead skin, and restores a radiant glow.' }
             ].map((service, index) => (
               <motion.div key={index} variants={fadeIn} className="group cursor-pointer">
                 <div className="overflow-hidden rounded-2xl mb-6 relative">
                   <div className="absolute inset-0 bg-brand-900/20 group-hover:bg-brand-900/10 transition-colors z-10"></div>
                   <img src={service.img} alt={service.title} className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg font-medium text-brand-900 z-20">
+                    {service.price}
+                  </div>
                 </div>
                 <h3 className="text-2xl font-serif text-brand-900 mb-3 text-center">{service.title}</h3>
                 <p className="text-brand-700 text-center font-light leading-relaxed">{service.desc}</p>
               </motion.div>
             ))}
           </motion.div>
-          
-          <div className="text-center mt-16">
-            <button className="border-2 border-brand-800 text-brand-800 px-8 py-3 rounded-full hover:bg-brand-800 hover:text-white transition-colors uppercase tracking-wider font-medium text-sm">
-              View Full Menu
-            </button>
+        </div>
+      </section>
+
+      {/* Booking Section */}
+      <section id="booking" className="py-24 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h4 className="text-accent uppercase tracking-widest font-semibold text-sm mb-4">Reserve Your Time</h4>
+            <h2 className="text-4xl md:text-5xl font-serif text-brand-900">Book an Appointment</h2>
+            <p className="text-brand-700 mt-4 font-light text-lg">Select your service and preferred time. We will send a confirmation to your email.</p>
           </div>
+          
+          <form 
+            action="https://formsubmit.co/Equilibrium.beautycare@gmail.com" 
+            method="POST"
+            className="bg-brand-50 p-8 md:p-12 rounded-3xl shadow-sm border border-brand-100"
+          >
+            {/* FormSubmit Configuration */}
+            <input type="hidden" name="_subject" value="New Booking Request - Equilibrium by Jen" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label className="block text-sm font-medium text-brand-800 mb-2">Full Name *</label>
+                <input type="text" name="Name" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white transition-shadow" placeholder="Jane Doe" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-brand-800 mb-2">Email Address *</label>
+                <input type="email" name="Email" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white transition-shadow" placeholder="jane@example.com" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-brand-800 mb-2">Phone Number *</label>
+                <input type="tel" name="Phone" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white transition-shadow" placeholder="+357 99 000000" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-brand-800 mb-2">Select Service *</label>
+                <select name="Service" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white text-brand-900 transition-shadow">
+                  <option value="">Choose a treatment...</option>
+                  <option value="Swedish Massage 60' (60€)">Swedish Massage 60' - 60€</option>
+                  <option value="Lymphatic Drainage 60' (65€)">Lymphatic drainage 60' - 65€</option>
+                  <option value="Deep Facial Cleansing 80' (70€)">Deep facial cleansing 80' - 70€</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-brand-800 mb-2">Preferred Date *</label>
+                <input type="date" name="Preferred_Date" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white text-brand-900 transition-shadow" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-brand-800 mb-2">Preferred Time *</label>
+                <input type="time" name="Preferred_Time" required className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white text-brand-900 transition-shadow" />
+              </div>
+            </div>
+            <div className="mb-8">
+              <label className="block text-sm font-medium text-brand-800 mb-2">Additional Notes (Optional)</label>
+              <textarea name="Notes" rows="3" className="w-full px-4 py-3 rounded-xl border border-brand-200 focus:outline-none focus:ring-2 focus:ring-accent bg-white transition-shadow" placeholder="Any special requests or conditions we should know about?"></textarea>
+            </div>
+            <button type="submit" className="w-full bg-brand-900 text-white py-4 rounded-xl hover:bg-brand-800 transition-colors uppercase tracking-widest font-medium text-sm">
+              Confirm Booking Request
+            </button>
+            <p className="text-center text-xs text-brand-600 mt-4 font-light">
+              By submitting this form, you will send a booking request. We will contact you shortly to confirm your appointment.
+            </p>
+          </form>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-24 px-4">
+      <section id="gallery" className="py-24 px-4 bg-brand-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-end mb-12">
             <div>
@@ -245,7 +306,7 @@ export default function App() {
               </li>
               <li className="flex items-center space-x-3 text-brand-300">
                 <Mail size={20} className="flex-shrink-0" />
-                <span className="font-light">hello@equilibriumbyjen.com</span>
+                <span className="font-light">Equilibrium.beautycare@gmail.com</span>
               </li>
             </ul>
           </div>
