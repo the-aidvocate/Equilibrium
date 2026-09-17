@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Instagram, Facebook, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+import { Menu, X, Instagram, Video, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -317,8 +317,8 @@ export default function App() {
               <a href="https://www.instagram.com/drjenni_equilibrium_beauty?stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-brand-700 flex items-center justify-center hover:bg-brand-800 hover:text-white transition-colors">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-brand-700 flex items-center justify-center hover:bg-brand-800 hover:text-white transition-colors">
-                <Facebook size={18} />
+              <a href="https://www.tiktok.com/@dr.jenni_beauty_c" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-brand-700 flex items-center justify-center hover:bg-brand-800 hover:text-white transition-colors">
+                <Video size={18} />
               </a>
             </div>
           </div>
