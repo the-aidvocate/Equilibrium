@@ -170,7 +170,8 @@ export default function App() {
             {[
               { title: "Swedish Massage 60'", price: "60€", img: '/1.jpeg', desc: 'A classic full-body massage designed to relax the entire body, improve circulation, and relieve muscle tension.' },
               { title: "Lymphatic Drainage 60'", price: "65€", img: '/3.jpeg', desc: 'A gentle massage technique to encourage the natural drainage of the lymph, reducing swelling and detoxifying.' },
-              { title: "Deep Facial Cleansing 80'", price: "70€", img: '/4.jpeg', desc: 'A comprehensive facial treatment that deeply cleanses pores, exfoliates dead skin, and restores a radiant glow.' }
+              { title: "Deep Facial Cleansing 80'", price: "70€", img: '/4.jpeg', desc: 'A comprehensive facial treatment that deeply cleanses pores, exfoliates dead skin, and restores a radiant glow.' },
+              { title: "Collagen Booster 30'", price: "40€", img: '/5.jpeg', desc: 'An intensive anti-aging treatment that stimulates collagen production, leaving your skin firm, plump, and youthfully radiant.' }
             ].map((service, index) => (
               <motion.div key={index} variants={fadeIn} className="group cursor-pointer">
                 <div className="overflow-hidden rounded-2xl mb-6 relative">
@@ -227,6 +228,7 @@ export default function App() {
                   <option value="Swedish Massage 60' (60€)">Swedish Massage 60' - 60€</option>
                   <option value="Lymphatic Drainage 60' (65€)">Lymphatic drainage 60' - 65€</option>
                   <option value="Deep Facial Cleansing 80' (70€)">Deep facial cleansing 80' - 70€</option>
+                  <option value="Collagen Booster 30' (40€)">Collagen Booster 30' - 40€</option>
                 </select>
               </div>
               <div>
