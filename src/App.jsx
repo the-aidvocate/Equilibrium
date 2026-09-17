@@ -169,14 +169,14 @@ export default function App() {
           >
             {[
               { title: "Swedish Massage 60'", price: "60€", img: '/1.jpeg', desc: 'A classic full-body massage designed to relax the entire body, improve circulation, and relieve muscle tension.' },
-              { title: "Lymphatic Drainage 60'", price: "65€", img: '/3.jpeg', desc: 'A gentle massage technique to encourage the natural drainage of the lymph, reducing swelling and detoxifying.' },
+              { title: "Lymphatic Drainage 60'", price: "65€", img: '/5.jpeg', imgClass: 'object-top', desc: 'A gentle massage technique to encourage the natural drainage of the lymph, reducing swelling and detoxifying.' },
               { title: "Deep Facial Cleansing 80'", price: "70€", img: '/4.jpeg', desc: 'A comprehensive facial treatment that deeply cleanses pores, exfoliates dead skin, and restores a radiant glow.' },
-              { title: "Collagen Booster 30'", price: "40€", img: '/5.jpeg', desc: 'An intensive anti-aging treatment that stimulates collagen production, leaving your skin firm, plump, and youthfully radiant.' }
+              { title: "Collagen Booster 30'", price: "40€", img: '/3.jpeg', desc: 'An intensive anti-aging treatment that stimulates collagen production, leaving your skin firm, plump, and youthfully radiant.' }
             ].map((service, index) => (
               <motion.div key={index} variants={fadeIn} className="group cursor-pointer">
                 <div className="overflow-hidden rounded-2xl mb-6 relative">
                   <div className="absolute inset-0 bg-brand-900/20 group-hover:bg-brand-900/10 transition-colors z-10"></div>
-                  <img src={service.img} alt={service.title} className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={service.img} alt={service.title} className={`w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700 ${service.imgClass || 'object-center'}`} />
                   <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg font-medium text-brand-900 z-20">
                     {service.price}
                   </div>
